@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  form(action="/shops", method="post")
+        div.input
+            span.label Token
+            input(type="text", name="token")
+        div.input
+            span.label Nom
+            input(type="text", name="name")
+        div.input
+            span.label Adresse
+            input(type="text", name="adress")
+        div.input
+            span.label Ville
+            input(type="text", name="city")
+        div.input
+            span.label latitude
+            input(type="text", name="lat")
+        div.input
+            span.label longitude
+            input(type="text", name="lng")        
+        div.actions
+            input(type="submit", value="add")

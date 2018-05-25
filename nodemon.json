@@ -1,0 +1,10 @@
+{
+    "ext": "js mjs ts",
+    "args":[],
+    "env": {"NODE_ENV": "development"},
+    "delay": "1000",
+    "execMap": {
+        "ts": "ts-node",
+        "mjs": "node -r @std/esm"
+    }
+}

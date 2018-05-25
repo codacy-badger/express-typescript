@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  form(action="/shops", method="get")
+        div.input
+            span.label latitude
+            input(type="text", name="lat")
+        div.input
+            span.label longitude
+            input(type="text", name="lng")        
+        div.actions
+            input(type="submit", value="add")
