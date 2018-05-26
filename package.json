@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "tsc",
-    "start": "nodemon --config ./nodemon.json ./src/app.ts",
-    "serve": "node -r esm dist/app.js",
     "postinstall": "npm run build",
-    "lint": "tslint ./src/**/*.ts"
+    "build": "cross-env NODE_ENV=production tsc",
+    "lint": "tslint ./src/**/*.ts",
+    "start": "tsc-watch --onSuccess 'cross-env NODE_ENV=development npm run serve'",
+    "serve": "node -r esm ./dist/app.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -20,8 +20,7 @@
     "morgan": "^1.9.0",
     "pg": "^7.4.3",
     "sequelize": "^4.37.10",
-    "socket.io": "^2.1.1",
-    "typescript": "^2.8.3"
+    "socket.io": "^2.1.1"
   },
   "devDependencies": {
     "@types/bcrypt": "^1.0.0",
@@ -37,8 +36,9 @@
     "@types/sequelize": "^4.27.20",
     "@types/socket.io": "^1.4.33",
     "babel-eslint": "^8.2.3",
-    "nodemon": "^1.17.5",
-    "ts-node": "^5.0.1",
-    "tslint": "^5.10.0"
+    "cross-env": "^5.1.6",
+    "tsc-watch": "^1.0.21",
+    "tslint": "^5.10.0",
+    "typescript": "^2.8.3"
   }
 }
