@@ -3,5 +3,9 @@
     "database": "test",
     "username": "postgres",
     "password": "root",
+    "options": {
+      "dialect": "postgres",
+      "host": "localhost"
+    }
   }
 }

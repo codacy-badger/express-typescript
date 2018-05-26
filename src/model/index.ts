@@ -1,4 +1,3 @@
-import Sequelize from 'sequelize';
 import sequelizeInstance from './instance';
 import ShopModel from './shop';
 import UserModel from './user';
