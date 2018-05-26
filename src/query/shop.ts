@@ -1,15 +1,22 @@
 import { ShopModel } from '../model/index';
 import { IShopModel } from '../model/shop';
 
-class ShopQuery {
+const ShopFindAll = (): Promise<IShopModel[]> => {
+  return ShopModel.findAll();
+};
 
-  public findAll(): Promise<IShopModel[]> {
-    return ShopModel.findAll();
-  }
+const ShopFindAround = (lat: number, lng: number, distance: number): Promise<IShopModel[]>  => {
+  return ShopModel.findAll();
+};
 
-  public findArround(lat: number, lng: number, distance: number): Promise<IShopModel[]>  {
-    return ShopModel.findAll();
-  }
-}
+const ShopQuery = {
+  ShopFindAll,
+  ShopFindAround,
+};
 
-export default new ShopQuery();
+export {
+  ShopFindAll,
+  ShopFindAround,
+};
+
+export default ShopQuery;

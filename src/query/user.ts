@@ -1,11 +1,12 @@
 import { UserModel } from '../model/index';
 import { IUserModel } from '../model/user';
 
-class UserQuery {
+export const UserFindAll = (): Promise<IUserModel[]> => {
+  return UserModel.findAll();
+};
 
-  public findAll(): Promise<IUserModel[]> {
-    return UserModel.findAll();
-  }
-}
+const UserQuery = {
+  UserFindAll,
+};
 
-export default new UserQuery();
+export default UserQuery;
