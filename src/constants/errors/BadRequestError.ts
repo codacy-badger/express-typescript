@@ -1,7 +1,7 @@
-import ErrorWithCode from './baseError';
+import BaseError from './BaseError';
 
-export default class NotFound extends ErrorWithCode {
-    constructor() {
-        super('Unauthorized', 401);
-    }
+export default class BadRequestError extends BaseError {
+  constructor() {
+    super('Bad Request', 400);
+  }
 }

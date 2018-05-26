@@ -1,18 +1,18 @@
-import * as bodyParser from 'body-parser';
+import bodyParser from 'body-parser';
 import express from 'express';
-import * as http from 'http';
+import http from 'http';
 import logger from 'morgan';
-import * as path from 'path';
+import path from 'path';
 
-/* middlewares */
-import errorHandler from './middlewares/error-handler';
+/* middleware */
+import ErrorsMiddleware from './middlewares/ErrorHandlers';
 import parametersParser from './middlewares/parameters-parser';
 
 /* routes */
 import { ShopRouter, UserRouter } from './routes/index';
 
 class App {
-  private app: express.Application;
+  private readonly app: express.Application;
   private server: http.Server;
 
   constructor() {
@@ -27,8 +27,8 @@ class App {
   }
 
   private configure(): void {
-    this.app.set('views', path.resolve('./src/views'));
-    this.app.set('view engine', 'jade');
+    // this.app.set('views', path.resolve('./src/views'));
+    // this.app.set('view engine', 'jade');
     this.app.set('etag', false); // TODO delete no-cache
     this.app.set('trust proxy', true);
     this.app.use(logger(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
@@ -46,7 +46,7 @@ class App {
   }
 
   private errorHandler(): void {
-    this.app.use(errorHandler({ template: 'error' }));
+    this.app.use(ErrorsMiddleware);
   }
 
 }

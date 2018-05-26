@@ -1,7 +1,7 @@
-import ErrorWithCode from './baseError';
+import BaseError from './BaseError';
 
-export default class NotFound extends ErrorWithCode {
-    constructor() {
-        super('Not Found', 404);
-    }
+export default class NotFound extends BaseError {
+  constructor() {
+    super('Not Found', 404);
+  }
 }
